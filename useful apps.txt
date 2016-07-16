@@ -26,9 +26,9 @@ cd /opt/idea-IC-162.1121.32/bin/
 
 #installing git 
 sudo apt-get install git-all
-cd /opt/smartgit/bin/
-./smartgit.sh
 
 # installing smart git
 http://www.syntevo.com/smartgit/download?file=smartgit/smartgit-linux-7_1_3.tar.gz
 sudo tar -xvf smartgit-linux-7_1_3.tar.gz -C /opt/
+cd /opt/smartgit/bin/
+./smartgit.sh
