@@ -36,15 +36,6 @@ script:
 
 #
 
-sudo mkdir /app/elastic-search/data/
-sudo chmod +r+w /app/elastic-search/data/
-
-sudo mkdir /app/elastic-search/log/
-sudo chmod +r+w /app/elastic-search/log/
-
-sudo touch /app/elastic-search/logs/elastic-single-node.log 
-sudo chmod +r+w /app/elastic-search/logs/elastic-single-node.log 
-
 cd /app/elastic-search/elasticsearch-2.3.4/bin/
 sudo ./elasticsearch -Des.insecure.allow.root=true
 
