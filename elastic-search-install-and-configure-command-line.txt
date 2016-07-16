@@ -1,0 +1,57 @@
+# download elastic:
+
+https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.4/elasticsearch-2.3.4.tar.gz
+
+#
+
+cd ~/Downloads/
+sudo mkdir /app/elasticsearch/
+sudo chmod +r+w /app/elasticsearch/
+sudo tar -xvf elasticsearch-2.3.4.tar.gz -C /app/elastic-search/
+sudo nano /app/elastic-search/elasticsearch-2.3.4/config/elasticsearch.yml 
+
+# set those properties:
+
+path:
+  logs: /var/log/elasticsearch
+  data: /var/data/elasticsearch
+
+cluster:
+  name: elastic-single-node
+
+node:
+  name: elastic-name-node
+  master: false
+  data: false
+
+index:
+  number_of_shards: 1
+index:
+  number_of_replicas: 0
+
+networkbind_host: localhost
+
+script:
+  fine-grained: true
+
+#
+
+sudo mkdir /app/elastic-search/data/
+sudo chmod +r+w /app/elastic-search/data/
+
+sudo mkdir /app/elastic-search/log/
+sudo chmod +r+w /app/elastic-search/log/
+
+sudo touch /app/elastic-search/logs/elastic-single-node.log 
+sudo chmod +r+w /app/elastic-search/logs/elastic-single-node.log 
+
+cd /app/elastic-search/elasticsearch-2.3.4/bin/
+sudo ./elasticsearch -Des.insecure.allow.root=true
+
+sudo jps
+
+curl curl localhost:9200
+curl localhost:9200/_nodes/stats/process?pretty
+
+
+

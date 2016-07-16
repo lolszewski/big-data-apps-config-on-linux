@@ -1,0 +1,34 @@
+# installing midnight-commander
+sudo apt-get install mc 
+
+# installing chrome browser
+sudo apt-get install libxss1 libappindicator1 libindicator7
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
+# running chrome
+cd /opt/google/chrome/
+./chrome
+
+# installing video package for high screen resolution
+sudo apt-get install virtualbox-guest-dkms
+
+# installing java jdk
+sudo apt-get update
+sudo apt-get install default-jdk
+java -version
+
+# installing intellij 
+https://www.jetbrains.com/idea/download/download-thanks.html?code=IIC
+cd /home/lukasz/Downloads/
+sudo tar -xvf ideaIC-2016.2.tar.gz -C /opt/
+cd /opt/idea-IC-162.1121.32/bin/
+./idea
+
+#installing git 
+sudo apt-get install git-all
+cd /opt/smartgit/bin/
+./smartgit.sh
+
+# installing smart git
+http://www.syntevo.com/smartgit/download?file=smartgit/smartgit-linux-7_1_3.tar.gz
+sudo tar -xvf smartgit-linux-7_1_3.tar.gz -C /opt/
