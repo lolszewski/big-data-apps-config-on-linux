@@ -1,0 +1,37 @@
+# download hive
+http://mirror.tcpdiag.net/apache/hive/stable/
+
+cd /home/lukasz/Downloads/
+sudo mkdir /usr/lib/hive/
+
+sudo tar -xvf apache-hive-1.2.1-bin.tar.gz -C /usr/lib/hive/
+cd /usr/lib/hive/apache-hive-1.2.1-bin/
+
+sudo nano ~/.bashrc
+# set 
+export HIVE_HOME=/usr/lib/hive/apache-hive-1.2.1-bin
+export PATH=$PATH:$HIVE_HOME/bin
+
+# restart the console
+# start your hadoop cluster
+
+# go to hive command line:
+hive
+# now you can start using hive :)
+
+
+#if you have message saying that you have no hadoop cluster, please ensure that you have this in your bashrc:
+#HADOOP VARIABLES START
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export HADOOP_INSTALL=/usr/local/hadoop
+export PATH=$PATH:$HADOOP_INSTALL/bin
+export PATH=$PATH:$HADOOP_INSTALL/sbin
+export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
+export HADOOP_COMMON_HOME=$HADOOP_INSTALL
+export HADOOP_HDFS_HOME=$HADOOP_INSTALL
+export YARN_HOME=$HADOOP_INSTALL
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
+#HADOOP VARIABLES END
+
+

@@ -1,0 +1,42 @@
+# download hbase
+http://www.apache.org/dyn/closer.cgi/hbase/
+
+cd /home/lukasz/Downloads/
+sudo mkdir /usr/lib/hbase/
+
+sudo tar -xvf hbase-1.2.2-bin.tar.gz -C /usr/lib/hbase/
+cd /usr/lib/hbase/hbase-1.2.2/
+sudo mc
+# edit conf/hbase-env.sh and set
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+
+# edit bashrc
+sudo nano ~/.bashrc
+# append:
+export HBASE_HOME=/usr/lib/hbase/hbase-1.2.2 
+export PATH=$PATH:$HBASE_HOME/bin
+
+# set hbase config
+sudo nano /usr/lib/hbase/hbase-1.2.2/conf/hbase-site.xml
+# set 
+<configuration>
+<property>
+<name>hbase.rootdir</name>
+<value>file:///home/hduser/HBASE/hbase</value>
+</property>
+<property>
+<name>hbase.zookeeper.property.dataDir</name>
+<value>/home/hduser/HBASE/zookeeper</value>
+</property>
+</configuration>
+
+# start hbase
+cd /usr/lib/hbase/hbase-1.2.2/bin/
+sudo ./start-hbase.sh
+sudo jps
+
+# stop hbase
+cd /usr/lib/hbase/hbase-1.2.2/bin/
+sudo ./stop-hbase.sh
+sudo jps
